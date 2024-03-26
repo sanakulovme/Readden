@@ -1,0 +1,34 @@
+*{
+	font-family: Poppins;
+}
+
+/*=============== SCROLL BAR ===============*/
+
+.scrol-sm::-webkit-scrollbar {
+    width: 0.6rem;
+    height: 10px;
+    border-radius: 1px;
+    background: #ddd;
+}
+
+.scrol-sm::-webkit-scrollbar-thumb {
+    width: 0.6rem;
+    background: rgba(0, 0, 0, .5);
+}
+
+.scrol-sm::-webkit-scrollbar-thumb:hover {
+    background: #1114;
+}
+
+
+.scrol-no::-webkit-scrollbar {
+    width: 0;
+}
+
+.scrol-no::-webkit-scrollbar-thumb {
+    width: 0;
+}
+
+/*  */
+
+
