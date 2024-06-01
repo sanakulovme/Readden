@@ -1,0 +1,139 @@
+/*
+*
+*
+*
+*/
+
+
+@media screen and (max-width: 1280px){
+	.container{
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 1100px){
+	.services-row{
+		flex-direction: column;
+	}
+
+	.services-row .services-user-box, .services-client-box{
+		width: 100%;
+	}
+
+	footer{
+		background: transparent;
+	}
+}
+
+@media screen and (max-width: 1000px){
+	header .header-row{
+		flex-direction: column-reverse;
+	}
+	.header-block{
+		width: 100%;
+	}
+	section .header-row{
+		flex-direction: column;
+	}
+
+	.header-title{
+		margin-bottom: 50px;
+	}
+
+}
+
+/*
+*
+* responsive navigation bar
+*
+*/
+
+@media screen and (max-width: 1024px){
+	nav{
+		padding: 20px 0;
+	}
+	nav .container{
+		position: relative;
+	}
+	.navbar{
+		width: 100%;
+		position: absolute;
+		z-index: 999999;
+		background: #fff;
+		transition: all 0.1s;
+		transform: translateY(-450px);
+	}
+	.navbar, .navbar-nav{
+		flex-direction: column;
+	}
+	.header-row{
+		padding-top: 50px;
+	}
+
+	.navbar-right{
+		margin-top: 50px;
+		flex-direction: column-reverse;
+	}
+	.navbar-right a, .navbar-nav a{
+		text-align: center;
+	}
+	.navIcon, .navClose{
+		width: 50px;
+		height: 50px;
+		opacity: 1;
+		pointer-events: auto;
+		color: var(--gray);
+	}
+
+	.navIcon, .navClose{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+	.navIcon span{
+		display: inline-block;
+		width: 35px;
+		height: 4px;
+		background: var(--gray);
+		margin: 3px 0;
+	}
+	.navClose span, .navIcon span{
+		transition: all 0.4s;
+
+	}
+
+	.navClose span:nth-child(1){
+		display: inline-block;
+		width: 35px;
+		height: 4px;
+		background: var(--gray);
+		margin: 3px 0;
+		transform: rotate(45deg) translateX(7px);
+	}
+	.navClose span:nth-child(3){
+		display: inline-block;
+		width: 35px;
+		height: 4px;
+		background: var(--gray);
+		transform: rotate(-45deg) translateX(7px);
+		margin: 3px 0;
+	}
+}
+
+@media screen and (max-width: 700px){
+	.header-title{
+		font-size: 1.7rem;
+	}
+}
+@media screen and (max-width: 425px){
+	.section-title{
+		font-size: 1.7rem;
+	}
+	.services-row ul li{
+		font-size: 0.9rem;
+	}
+}
+
+
+

@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+
+*{
+    font-family: Poppins;
+}
+
+.user-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    cursor: pointer;
+    gap: 10px;
+    position: relative;
+    padding: 35px 20px;
+}
+
+.backcheck{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+}
+
+#modal{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: #fff5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.modal-close span{
+    width: 25px;
+    height: 3px;
+    background: #111;
+    display: inline-block;
+    position: absolute;
+}
+
+.modal-close span:first-child{
+    transform: rotate(45deg);
+}
+
+.modal-close span:last-child{
+    transform: rotate(-45deg);
+}
+.user-nav img {
+    width: 100%;
+    height: auto;
+}
+
+#logout{
+    cursor: pointer;
+}
+
+.g_desc{
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.user-nav div:first-child{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.tag-list span {
+    cursor: pointer;
+}
+
+section.login,
+section.register{
+    width: 100%;
+    height: 100vh;
+    background: url("../images/global-banner.png") no-repeat center;
+}
+
+.file-input{
+    position: relative;
+}
+.file-input label{
+    border: 1px dashed #111;
+    padding: 10px;
+    height: 100px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.file-input input{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-40px);
+    position: absolute;
+}
+.create-gr{
+    position: relative;
+}
+
+.toggle-btn{
+    position: relative;
+}
+.toggle{
+    width: 350px;
+    height: 250px;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    background: #fff;
+    top: 28px;
+    right: 0;
+    transition: all 0.2s;
+    color: #111;
+    border: 2px solid var(--gray);
+    z-index: 9999999;
+    border-radius: 5px;
+    cursor: default;
+}
+
+@media screen and (max-width: 425px){
+    .toggle{
+        right: -50%;
+    }
+}
+
+
+@media screen and (max-width: 375px){
+    .toggle{
+        right: -30%;
+        width: 300px;
+    }
+}
+
+.create-gr:hover .toggle, .toggle-btn:hover .toggle{
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+
+@keyframes d-off {
+    60% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(-25px);
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes d-on {
+    0% {
+        transform: translateY(-25px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(0);
+    }
+    100% {
+        display: flex;
+        opacity: 1;
+    }
+}
+
+.user-circle{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-circle img{
+    width: 100%;
+    height: auto;
+}
+
+.tag-box{
+    height: 200px;
+    overflow-y: auto;
+}
+
+.password_ven{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 20px;
+    top: 35%;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 425px){
+    .cv-index-nav{
+        flex-direction: column;
+        justify-content: center !important;
+        align-items: center;
+    }
+
+    .toggle-btn-g{
+        margin-top: 20px;
+    }
+}
+
+.password_ven.open{
+    background: url(../images/eye-slash.svg);
+}
+
+.modal-off{
+    pointer-events: none;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.2s;
+}
+.modal-on{
+    pointer-events: auto;
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.2s;
+}
+
+.password_ven.close{
+    background: url(../images/eye.svg) no-repeat center;
+    background-size: contain;
+}
+
+#password_icon{
+    position: absolute;
+    right: 10px;
+    top: 40%;
+    cursor: pointer;
+}
+
+/*=============== SCROLL BAR ===============*/
+
+.tag-box::-webkit-scrollbar, .g_desc::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+    border-radius: 10px;
+}
+
+.tag-box::-webkit-scrollbar-thumb, .g_desc::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-radius: 10px;
+    background: #1114;
+}

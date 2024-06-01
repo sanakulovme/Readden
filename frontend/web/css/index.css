@@ -1,0 +1,16 @@
+
+
+/* HEADER section */
+
+header{
+    width: 100%;
+}
+
+.header-row{
+    min-height: 100vh;
+/*    color: #fff;*/
+}
+    
+.header-block{
+    text-align: center;
+}

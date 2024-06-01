@@ -5,14 +5,11 @@
 
 use common\widgets\Alert;
 use frontend\assets\AppAsset;
-use yii\bootstrap5\Breadcrumbs;
-use yii\bootstrap5\Html;
-use yii\bootstrap5\Nav;
-use yii\bootstrap5\NavBar;
-use yii\bootstrap5\Dropdown;
+use yii\helpers\Html;
+use yii\widgets\Dropdown;
+use yii\helpers\Url;
 
 AppAsset::register($this);
-// \frontend\assets\MyAsset::register($this);
 
 ?>
 <?php $this->beginPage() ?>
@@ -28,94 +25,112 @@ AppAsset::register($this);
 <body class="hold-transition layout-top-nav">
 <?php $this->beginBody() ?>
 
-<header class="">
-    <?php
-        NavBar::begin([
-            'brandLabel' => 'Readden',
-            'brandUrl' => Yii::$app->homeUrl,
-            'options' => [
-                'class' => 'main-header navbar navbar-expand-lg navbar-light navbar-white py-3 border-bottom mb-4',
-            ],
-        ]);
+<!-- <nav>
+    <div class="container">
+        <div class="navbar" id="nav">
+            <ul class="navbar-nav animat_top">
+                <li class="nav-item">
+                    <a href="/docs" class="my-btn">Qo'llanma</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/search" class="my-btn">Ishchi izlang</a>
+                </li>
+            </ul>
+            <ul class="navbar-right animat_top">
+                <?php if (Yii::$app->user->isGuest): ?>
+                <li class="nav-item">
+                    <a href="/login" class="my-btn">Kirish <i class="fa fa-exit"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/register" class="my-btn">Ro'yxatdan o'tish</a>
+                </li>
+                <?php else: ?>
+                <li class="nav-item">
+                    <?= Html::a(Yii::$app->user->identity->username, Url::to(['/user', 'username' => Yii::$app->user->identity->username]), ['class' => 'my-btn']) ?>
+                </li>
+                <?php endif ?>
 
-        $menuItems = [
-            [
-                'label' => 'Bloglar',
-                'url' => ['/blogs']
-            ],
-            [
-                'label' => 'Categoriya',
-                'items' => [
-                    [
-                        'label' => 'Dropdown A',
-                        'url' => '#'
-                    ],
-                     [
-                        'label' => 'Dropdown B',
-                        'url' => '#'
-                    ],
-                ],
-            ],
-            [
-                'label' => 'Categoriya(til)',
-                'items' => [
-                    [
-                        'label' => 'Dropdown A',
-                        'url' => '#'
-                    ],
-                     [
-                        'label' => 'Dropdown B',
-                        'url' => '#'
-                    ],
-                ],
-            ],
-        ];
-
-        echo Nav::widget([
-            'options' => ['class' => 'navbar-nav me-auto mb-2 mb-md-0'],
-            'items' => $menuItems,
-        ]);
-
-        ?>
-        <?php
-
-        if (Yii::$app->user->isGuest) {
-            echo "<div class='d-flex gap-3'>";
-            echo Html::a('Kirish <i class="fa fa-user"></i>',['/auth/login'], ['class' => ['nav-link']]);
-            echo Html::a('Ro\'yxatdan o\'tish <i class="fa fa-arrow-right"></i>',['/auth/register'], ['class' => ['nav-link']]);
-            echo "</div>";
-        } else {
-            echo "<div class='d-flex gap-3'>";
-            echo Html::a('<i class="fa fa-user mx-1"></i>'.Yii::$app->user->identity->username,['/profile'], ['class' => ['nav-link']]);
-
-            echo Html::beginForm(['/site/logout'], 'post', ['class' => 'd-flex'])
-                . Html::submitButton(
-                    'Logout <i class="fa fa-arrow-right"></i>',
-                    ['class' => 'nav-link logout']
-                )
-                . Html::endForm();
-            echo "</div>";
-        }
-        NavBar::end();
-
-    ?>
-</header>
+            </ul>
+        </div>
+        <div class="navIcon" id="navIcon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    </div>
+</nav> -->
 
 <main role="main" class="">
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
         <?= Alert::widget() ?>
-        <?= $content ?>
     </div>
+    <?= $content ?>
 </main>
 
-<footer class="footer mt-auto py-3 text-muted">
-    <div class="container">
-
-    </div>
-</footer>
+<!-- <footer class="">
+            <div class="container">
+                <div class="footer-row">
+                    <div class="footer-col">
+                        <ul>
+                            <li>Sahifalar</li>
+                            <li>
+                                <a href="/docs" class="footer-link">Qo'llanma</a>
+                            </li>
+                            <li>
+                                <a href="/about" class="footer-link">Biz haqimizda</a>
+                            </li>
+                            <li>
+                                <a href="/search" class="footer-link">Ishchi izlash</a>
+                            </li>
+                            <li>
+                                <a href="/register" class="footer-link">Ro'yxatdan o'tish</a>
+                            </li>
+                            <li>
+                                <a href="/login" class="footer-link">Kirish</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <ul>
+                            <li>Manbalar</li>
+                            <li>
+                                <a href="https://fontawesome.com/" target="_blank" class="footer-link">Font awesome</a>
+                            </li>
+                            <li>
+                                <a href="https://getbootstrap.com/" class="footer-link">Bootstrap</a>
+                            </li>
+                            <li>
+                                <a href="https://adminlte.io/" class="footer-link">AdminLite css</a>
+                            </li>
+                            <li>
+                                <a href="https://codemirror.net/" class="footer-link">Codemirror</a>
+                            </li>
+                            <li>
+                                <a href="https://scrollrevealjs.org/" class="footer-link">ScrollReveal</a>
+                            </li>
+                            <li>
+                                <a href="https://blush.design/" class="footer-link">Blush design</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <ul>
+                            <li>Bog'lanish</li>
+                            <li>
+                                <a href="mailto:abbossana@gmail.com" target="_blank" class="footer-link">Email</a>
+                            </li>
+                            <li>
+                                <a href="tel:+998904791563" class="footer-link">Telefon</a>
+                            </li>
+                            <li>
+                                <a href="https://t.me/sanakulovme" class="footer-link">Telegram</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+</footer> -->
+<!-- <p class="copright">Barcha huquqlar himoyalangan. &copy; <?= date("Y") ?>. Powerd by <a target="_blank" href="https://sanakulov.uz/">Abbos Sanakulov</a></p> -->
 
 <?php $this->endBody() ?>
 </body>

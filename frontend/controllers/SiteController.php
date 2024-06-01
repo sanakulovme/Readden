@@ -1,7 +1,7 @@
 <?php
 
 namespace frontend\controllers;
-// declare(strict_types=1);
+
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -15,10 +15,6 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-use Endroid\QrCode\QrCode;
-use Endroid\QrCode\Writer\PngWriter;
-// use chillerlan\QRCode\QRCode;
-// use chillerlan\QRCode\QROptions;
 
 /**
  * Site controller
@@ -72,6 +68,13 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionWidgets()
+    {
+        $this->layout = 'widgets';
+
+        return $this->render('widgets');
+    }
+
     /**
      * Displays homepage.
      *
@@ -79,20 +82,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        if (\Yii::$app->request->get("l")) {
-            // Example Usage:
-            $shortener = new URLShortener();
-
-            // Shorten a URL
-            $short_code = $shortener->shortenURL("https://example.com/very/long/url/that/needs/shortening");
-            echo "Shortened URL: $short_code<br>";
-
-            // Retrieve original URL
-            $original_url = $shortener->getOriginalURL($short_code);
-            echo "Original URL: $original_url<br>";
-
-            echo "string";
-        }
         return $this->render('index');
     }
 
@@ -103,13 +92,16 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        $this->layout = 'auth';
+
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->redirect('/'.Yii::$app->user->identity->username);
         }
 
         $model = new LoginForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            return $this->redirect('/'.Yii::$app->user->identity->username);
         }
 
         $model->password = '';
@@ -138,7 +130,7 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        $this->layout = "contactLayout";
+
 
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
@@ -163,6 +155,7 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
+        Yii::$app->language = 'rlku';
         return $this->render('about');
     }
 
@@ -173,6 +166,8 @@ class SiteController extends Controller
      */
     public function actionSignup()
     {
+        $this->layout = 'auth';
+
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
@@ -275,5 +270,23 @@ class SiteController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
+    }
+
+    public function actionChangelang($lang)
+    {
+        Yii::$app->language = Yii::$app->request->get('lang');
+        $session = Yii::$app->session;
+        $session['lang'] = Yii::$app->language;
+
+        return $this->goHome();
+    }
+
+    public function actionDocs()
+    {
+        return $this->render('docs/docs');
+    }
+    public function actionSearch()
+    {
+        return $this->render('search');
     }
 }

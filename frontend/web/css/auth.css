@@ -1,0 +1,104 @@
+/*
+*	auth css for form and colabarate input/labeles
+*/
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	width: 100%;
+	background: url(/images/global-banner.png) no-repeat center;
+	font-family: "Poppins", sans-serif;
+}
+
+.container{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+/* Media sreen | Media query css file */
+@media screen and (max-width: 1200px){
+    .container{
+        width: 90%;
+    }
+}
+
+.auth-row{
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px 0;
+}
+
+.auth-col{
+	width: 400px;
+	background: transparent;
+	color: #111;
+	backdrop-filter: blur(4px);
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 40px;
+}
+
+@media screen and (max-width: 550px){
+	.auth-col{
+		width: 100%;
+	}
+}
+
+.auth-col-title{
+	font-size: 2rem;
+	text-align: center;
+	font-weight: 300;
+	margin-bottom: 30px;
+}
+
+.form-group{
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 25px;
+}
+
+.form-group.has-error input{
+	border-color: #A52A2A;
+	color: #B22222;
+}
+
+.form-group.has-error .help-block{
+	color: #B22222;
+}
+
+.form-group input{
+	padding: 15px 20px;
+	font-size: 1.1rem;
+	border: 1px solid #ccc;
+	outline: 0;
+	border-radius: 5px;
+}
+
+.btn{
+	border: 1px solid #fff;
+	border-radius: 5px;
+	padding: 20px;
+	font-size: 1.1rem;
+	font-weight: 500;
+	cursor: pointer;
+	font-family: 'Poppins', sans-serif;
+}
+
+.btn.t{
+	text-transform: uppercase;
+}
+
+form a{
+	color: var(--btn);
+}
+
+.auth-col a:hover{
+	text-decoration: none;
+}

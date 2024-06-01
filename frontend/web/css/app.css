@@ -1,0 +1,83 @@
+/*
+*----------------------------------------------------
+* site main css file (widget|component)s style codes
+* author: Abbos Sanakulov | abbossana@gail.com
+* --------------------------------------------------
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root{
+	--btn: #007BFF;
+}
+
+.btn-group{
+	display: flex;
+	gap: 10px;
+	margin: 20px 0;
+}
+
+.my-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    color: #fff;
+    background-color: var(--btn);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+/*    font-weight: bold;*/
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.my-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.my-btn:active {
+    background-color: #004080;
+    transform: translateY(0);
+}
+
+.container{
+	width: 1200px;
+	margin: 0 auto;
+}
+.flex{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.img{
+	width: 100%;
+	height: auto;
+}
+
+.alert-success{
+	text-align: center;
+    padding: 20px 0;
+    margin: 20px 0;
+    border: 1px solid #228B22;
+    border-radius: 5px;
+    font-size: 1.3rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	font-weight: 500;
+}

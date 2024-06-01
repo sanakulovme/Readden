@@ -3,20 +3,20 @@
 /** @var yii\web\View $this */
 
 $this->title = 'Online Rezyumelar platformasi.';
-
-// echo substr(str_shuffle("qwertyuiopasdfghjklzxcvbnm1234567890"), 0, 6);
 ?>
 
-<div class="row justify-content-center align-items-center my-4" style="height: 50vh;">
-	<div class="col col-md-7">
-		<form class="" action="/search" method="get">
-			<h4 class="text-center mb-3 display-6">Muammoingiz haqida qisqacha yozing.</h4>
-            <div class="input-group">
-                <input class="form-control form-control-lg" name="q" type="text" placeholder="Muammoni izlang" aria-label="Search">
-                <button class="input-group-text px-3" type="submit">
-                        <i class="fa fa-search"></i>
-                </button>
+
+<header class="header">
+    <div class="container">
+        <div class="header-row flex">
+            <div class="header-block">
+                <h1 class="header-title">Online rezyumelar platformasi.</h1>
+                <h3>Bir bosish bilan shaxsiy rezyumeingizga ega bo'ling</h3>
+                <div class="btn-group flex">
+                    <a href="/login" class="my-btn">Kirish</a>
+                    <a href="/register" class="my-btn">Ro'yxatdan o'tish</a>
+                </div>
             </div>
-        </form>
-	</div>
-</div>
+        </div>
+    </div>
+</header>

@@ -10,7 +10,7 @@ return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    // 'defaultRoute' => 'site/',
+    'defaultRoute' => 'site/index',
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
@@ -41,33 +41,38 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            // 'enableStrictParsing' => true,
             'rules' => [
-                'home' => '/site/index',
-                'blog/<id:\w+>' => '/blog'
+                'login' => 'site/login',
+                'about' => 'site/about',
+                'docs' => 'site/docs',
+                'search' => 'site/search',
+                'register' => 'site/signup',
+                'news' => 'site/error',
+
+
+                // main user(name) route
+                '<username:\w+>' => 'user',
+                '<username:\w+>/cv' => 'user/cv',
             ],
         ],
         'assetManager' => [
-            // 'bundles' => [
-            //     'yii\web\JqueryAsset' => [
-            //         'js' =>[]
-            //     ],
-            //     'yii\bootstrap5\BootstrapPluginAsset' => [
-            //         'js' => []
-            //     ],
-            //     'yii\bootstrap5\BootstrapAsset' => [
-            //         'css' => [],
-            //     ],
-            // ],
+            'bundles' => [
+                // 'yii\web\JqueryAsset' => [
+                //     'js' =>[]
+                // ],
+                'yii\bootstrap5\BootstrapPluginAsset' => [
+                    'js' => []
+                ],
+                'yii\bootstrap5\BootstrapAsset' => [
+                    'css' => [],
+                ],
+            ],
         ]
 
     ],
     'modules' => [
-        'profile' => [
-            'class' => 'frontend\modules\profile\Profile'
-        ],
-        'billing' => [
-            'class' => 'frontend\modules\billing\Billing'
-        ]
+
     ],
     'params' => $params,
 ];

@@ -4,32 +4,30 @@
 /** @var yii\bootstrap5\ActiveForm $form */
 /** @var \frontend\models\SignupForm $model */
 
-use yii\bootstrap5\Html;
-use yii\bootstrap5\ActiveForm;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use yii\helpers\Url;
 
-$this->title = 'Signup';
+$this->title = 'Ro\'yxatdan o\'tish';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>Please fill out the following fields to signup:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'email') ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
+<div class="auth-row">
+    <div class="auth-col">
+        <div class="auth-col-title"><?= Html::encode($this->title) ?></div>
+        <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+        <!-- <?= $form->field($model, 'type', ['options' => ['class' => 'list-group']])->radioList([
+            "user" => "Men ishchiman Rezume yaratish, teglar qo'shish.",
+            'client' => 'Men ish beruvchiman Rezumelarni tahrirlash, qabul qilish.'
+        ])->label("Siz kimsiz?") ?> -->
+        <?= $form->field($model, 'username')->textInput() ?>
+        <?= $form->field($model, 'email') ?>
+        <?= $form->field($model, 'password')->passwordInput() ?>
+        <div class="form-group">
+            <?= Html::submitButton("Ro'yxatdan o'tish", ['class' => 'my-btn', 'name' => 'signup-button']) ?>
         </div>
+        <p>Akkauntingiz bormi? <?= Html::a("Kirish", Url::to('/login')) ?></p>
+        <hr style="margin: 10px 0;">
+        <p><?= Html::a("Bosh sahifa", Url::to('/')) ?></p>
+        <?php ActiveForm::end(); ?>
     </div>
 </div>
